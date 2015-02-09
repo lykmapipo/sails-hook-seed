@@ -14,7 +14,7 @@ describe('Hook#seed', function() {
     });
 
 
-    it('should load persistent with the provided seeds', function(done) {
+    it('should load persistent storage with the provided seeds', function(done) {
         User
             .count(function(error, count) {
                 if (error) {
