@@ -9,7 +9,7 @@ sails-hook-seed
 
 DRY data seeding for sails.
 
-Simplify seeding your persistent storage of your choice based on the current running environemt(`sails.config.environment`) your application. That is to say that, you may use `sails-hook-seed` during `test`,`develop` and even seed your application with default data during deployment in `production` environment.
+Simplify seeding your persistent storage of your choice based on the current running environmentt obtained from `sails.config.environment` of your application. That is to say that, you may use `sails-hook-seed` during `test`,`develop` and even seed your application with default data during deployment in `production` environment.
 
 *Note: This requires Sails v0.11.0+.  If v0.11.0+ isn't published to NPM yet, you'll need to install it via Github.*
 
@@ -19,7 +19,7 @@ $ npm install --save sails-hook-seed
 ```
 
 ## Usage
-`sails-hook-seed` utilize `sails.config.environment` variable to detect which seeds to apply to your persistence storage. Under the hood `sails-hook-seed` utilize `Model.findOrCreate` method to make it safe to run it in `production` environment too.
+`sails-hook-seed` utilize `sails.config.environment` variable to detect which seeds to apply to your persistence storage. Under the hood `sails-hook-seed` it make heavy use `Model.findOrCreate` method to make it safe to run it in `production` environment too. *All seeds are appliied in parallel*
 
 By default `sails-hook-seed` look for environment specific seeds in the `seeds` directory inside `sails.appPath` of your application. Example, if you need to seed your applicaion during `test` you will have to create `seeds/test` and add `model seed files` inside it.
 
