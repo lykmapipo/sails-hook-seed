@@ -1,7 +1,7 @@
 sails-hook-seed
 ====================
 
-[![Build Status](https://travis-ci.org/lykmapipo/sails-hook-seed.svg?branch=master)](https://travis-ci.org/lykmapipo/sails-hook-seed
+[![Build Status](https://travis-ci.org/lykmapipo/sails-hook-seed.svg?branch=master)](https://travis-ci.org/lykmapipo/sails-hook-seed)
 
 [![Tips](https://img.shields.io/gratipay/lykmapipo.svg)](https://gratipay.com/lykmapipo/)
 
