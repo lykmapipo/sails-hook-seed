@@ -9,7 +9,7 @@ sails-hook-seed
 
 DRY data seeding for sails.
 
-Simplify seeding your persistent storage of your choice based on the current running environmentt obtained from `sails.config.environment` of your application. That is to say that, you may use `sails-hook-seed` during `test`,`develop` and even seed your application with default data during deployment in `production` environment.
+Simplify seeding your persistent storage of your choice based on the current running environmentt obtained from `sails.config.environment` of your application. That is to say, you may use `sails-hook-seed` during `test`,`develop` and even seed your application with default data during deployment in `production` environment.
 
 *Note: This requires Sails v0.11.0+.  If v0.11.0+ isn't published to NPM yet, you'll need to install it via Github.*
 
@@ -19,9 +19,9 @@ $ npm install --save sails-hook-seed
 ```
 
 ## Usage
-`sails-hook-seed` utilize `sails.config.environment` variable to detect which seeds to apply to your persistence storage. Under the hood `sails-hook-seed` it make heavy use `Model.findOrCreate` method to make it safe to run it in `production` environment too. *All seeds are appliied in parallel*
+`sails-hook-seed` utilize `sails.config.environment` variable to detect which seeds to apply to your persistence storage. Under the hood `sails-hook-seed` it make heavy use `Model.findOrCreate` method to make it safe to run it in `production` environment too. *All seeds are applied in parallel*
 
-By default `sails-hook-seed` look for environment specific seeds in the `seeds` directory inside `sails.appPath` of your application. Example, if you need to seed your applicaion during `test` you will have to create `seeds/test` and add `model seed files` inside it.
+By default `sails-hook-seed` look for environment specific seeds in the `seeds` directory inside `sails.appPath` of your application. Example, if you need to seed your application during `test` you will have to create `seeds/test` and add `model seed files` inside it.
 
 `sails-hook-seed` will load any file suffix-ed with `Seed` and load it as a seed. Example, if you want to seed your `User` model during `test` your need to write your seed as folow:
 
@@ -36,7 +36,7 @@ module.exports = [{
     email: faker.internet.email()
 }];
 ```
-`sails-hook-seed` accept `array type` and `plain object` type seeds. That is, from the above example if youe were to seed only single `User`, your data seed file would have been as follow:
+`sails-hook-seed` accept `array type` and `plain object` type seeds. That is, from the above example if you were to seed only single `User`, your data seed file would have been as follow:
 
 ```js
 //in seed/test/UserSeed.js
@@ -51,7 +51,7 @@ module.exports = {
 ```
 The same convection must be followed for `develop` and `production` environment.
 
-*Note: Environement specific folder are named after their environment name, e.g if sails.config.environment is test, the to make sure your test seed ar loaded they must be placed under `seed/test` folder for `sails-hook-seed` to pick and apply your seeds. Your may look this repo seed folder to see and example*
+*Note: Environement specific folder are named after their environment name, e.g if `sails.config.environment` is `test`, then to make sure your test seeds are loaded they must be placed under `seed/test` folder for `sails-hook-seed` to pick and apply your seeds. Your may look this repo `seeds folder` to see example*
 
 ## Configuration
 `sails-hook-seed` accept application defined configuration by utilizing sails configuration api. In sails `config` directory add `config/seed.js` and you will be able to override all the defauts configurations.
