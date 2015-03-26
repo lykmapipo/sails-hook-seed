@@ -81,6 +81,7 @@ module.exports = function(done) {
         email: faker.internet.email()
     }];
 
+    //remember to tell when your are done
     done(null, data);
 };
 ```
