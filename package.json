@@ -4,7 +4,6 @@
     "description": "DRY data seeding for sails",
     "main": "index.js",
     "scripts": {
-        "dev": "node ./api/app.js",
         "pretest": "npm link && npm link sails-hook-seed",
         "test": "./node_modules/.bin/mocha --timeout 10000",
         "posttest": "rm -rf .tmp"
