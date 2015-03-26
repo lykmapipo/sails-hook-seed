@@ -9,7 +9,7 @@ sails-hook-seed
 
 DRY data seeding for sails.
 
-Simplify seeding your persistent storage of your choice based on the current running environment obtained from `sails.config.environment` of your application. That is to say, you may use `sails-hook-seed` during `test`,`develop` and even seed your application with default data during deployment in `production` environment.
+Simplify seeding data to your persistent storage of your choice based on the current running environment obtained from `sails.config.environment` of your application. That is to say, you may use `sails-hook-seed` during `test`,`development` and even seed your application with default data during deployment in `production` environment.
 
 *Note: This requires Sails v0.11.0+.  If v0.11.0+ isn't published to NPM yet, you'll need to install it via Github.*
 
@@ -38,8 +38,13 @@ module.exports = [{
     email: faker.internet.email()
 }];
 ```
-`sails-hook-seed` accept `array type` and `plain object` type seeds. That is, from the above example if you were to seed only single `User`, your data seed file would have been as follow:
 
+## Seed types
+`sails-hook-seed` accept `array type`, `plain object` and `functional` type seeds.
+
+### Examples
+
+#### Object seed type
 ```js
 //in seed/test/UserSeed.js
 var faker = require('faker');
@@ -51,7 +56,41 @@ module.exports = {
     email: faker.internet.email()
 };
 ```
-The same convection must be followed for `develop` and `production` environment.
+
+#### Array seed type
+```js
+//in seed/test/UserSeed.js
+var faker = require('faker');
+
+//array of data to seed
+module.exports = [{
+    username: faker.internet.userName(),
+    email: faker.internet.email()
+}];
+```
+
+#### Functional seed type
+```js
+//in seed/test/UserSeed.js
+var faker = require('faker');
+
+//function to be evaluated to obtain data
+module.exports = function(done) {
+
+    var data = [{
+        username: faker.internet.userName(),
+        email: faker.internet.email()
+    }, {
+        username: faker.internet.userName(),
+        email: faker.internet.email()
+    }];
+
+    done(null, data);
+};
+```
+
+
+The same convection must be followed for `development` and `production` environment.
 
 *Note: Environement specific folder are named after their environment name, e.g if `sails.config.environment` is `test`, then to make sure your test seeds are loaded they must be placed under `seed/test` folder for `sails-hook-seed` to pick and apply your seeds. Your may look this repo `seeds folder` to see example*
 

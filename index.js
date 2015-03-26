@@ -1,4 +1,4 @@
-var _ = require('lodash');
+//dependencies
 var path = require('path');
 var loadSeeds = require(path.join(__dirname, 'lib', 'load'));
 /**
