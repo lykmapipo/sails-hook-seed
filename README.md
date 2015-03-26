@@ -19,10 +19,6 @@ $ npm install --save sails-hook-seed
 ```
 
 ## Usage
-`sails-hook-seed` utilize `sails.config.environment` variable to detect which seeds to apply to your persistence storage. Under the hood `sails-hook-seed` it make heavy use `Model.findOrCreate` method to make it safe to run it in `production` environment too. 
-
-*Note: All seeds are applied in parallel*
-
 By default `sails-hook-seed` look for environment specific seeds in the `seeds` directory inside `sails.appPath` of your application. Example, if you need to seed your application during `test` you will have to create `seeds/test` and add `model seed files` inside it.
 
 `sails-hook-seed` will load any file suffix-ed with `Seed` and load it as a seed. Example, if you want to seed your `User` model during `test` your need to write your seed as folow:
@@ -39,7 +35,7 @@ module.exports = [{
 }];
 ```
 
-## Seed types
+## Seed Types
 `sails-hook-seed` accept `array type`, `plain object` and `functional` type seeds.
 
 ### Examples
