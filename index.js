@@ -1,3 +1,5 @@
+'use strict';
+
 //dependencies
 var path = require('path');
 var loadSeeds = require(path.join(__dirname, 'lib', 'load'));
@@ -45,7 +47,7 @@ module.exports = function(sails) {
             sails
                 .after(eventsToWaitFor, function() {
                     //load seeds
-                    loadSeeds(done);
+                    loadSeeds(config, done);
                 });
         }
     };

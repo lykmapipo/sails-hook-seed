@@ -1,3 +1,5 @@
+'use strict';
+
 var faker = require('faker');
 
 //array of data to seed

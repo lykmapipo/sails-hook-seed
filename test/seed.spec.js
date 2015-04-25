@@ -1,3 +1,5 @@
+'use strict';
+
 //dependencies
 var expect = require('chai').expect;
 var faker = require('faker');
@@ -59,7 +61,7 @@ describe('Hook#seed', function() {
                 expect(user.id).to.not.be.null;
                 expect(user.username).to.not.be.null;
                 expect(user.email).to.not.be.null;
-                done()
+                done();
             }
         });
     });
@@ -94,7 +96,7 @@ describe('Hook#seed', function() {
                 expect(user.id).to.not.be.null;
                 expect(user.username).to.not.be.null;
                 expect(user.email).to.not.be.null;
-                done()
+                done();
             }
         });
     });
@@ -136,7 +138,7 @@ describe('Hook#seed', function() {
                 expect(user.id).to.not.be.null;
                 expect(user.username).to.not.be.null;
                 expect(user.email).to.not.be.null;
-                done()
+                done();
             }
         });
     });
@@ -144,8 +146,11 @@ describe('Hook#seed', function() {
 
     it('should be able to load test environment specific seeds', function(done) {
         sails.config.environment = 'test';
+        var config = {
+            path: 'seeds'
+        };
 
-        loadSeeds(function(error, result) {
+        loadSeeds(config, function(error, result) {
             if (error) {
                 done(error);
             } else {
@@ -160,8 +165,11 @@ describe('Hook#seed', function() {
 
     it('should be able to load development environment specific seeds', function(done) {
         sails.config.environment = 'development';
+        var config = {
+            path: 'seeds'
+        };
 
-        loadSeeds(function(error, result) {
+        loadSeeds(config, function(error, result) {
             if (error) {
                 done(error);
             } else {
@@ -175,8 +183,11 @@ describe('Hook#seed', function() {
 
     it('should be able to load production environment specific seeds', function(done) {
         sails.config.environment = 'production';
+        var config = {
+            path: 'seeds'
+        };
 
-        loadSeeds(function(error, result) {
+        loadSeeds(config, function(error, result) {
             if (error) {
                 done(error);
             } else {
@@ -186,6 +197,5 @@ describe('Hook#seed', function() {
             }
         });
     });
-
 
 });

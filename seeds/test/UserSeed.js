@@ -1,3 +1,5 @@
+'use strict';
+
 var faker = require('faker');
 
 //function to be evaluated to obtain data
