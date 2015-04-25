@@ -30,6 +30,8 @@
         "sail",
         "hook",
         "seed",
+        "fixtures",
+        "dump",
         "database",
         "load",
         "populate",
