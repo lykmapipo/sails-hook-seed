@@ -15,7 +15,6 @@ describe('Hook#seed', function() {
         done();
     });
 
-
     it('should load persistent storage with the provided seeds', function(done) {
         User
             .count(function(error, count) {
@@ -143,6 +142,45 @@ describe('Hook#seed', function() {
         });
     });
 
+    it('should be able to prepare work(s) to be performed from seeds start with `S` letter', function(done) {
+        var seeds = {
+            StageSeed: function(done) {
+
+                var data = [{
+                    name: faker.internet.userName(),
+                }, {
+                    name: faker.internet.userName(),
+                }];
+
+                done(null, data);
+            }
+        };
+
+        var works = prepareWork(seeds);
+
+        expect(works).to.be.a('array');
+        expect(works.length).to.be.equal(2);
+
+        var work = works[0];
+
+        expect(work).to.be.a('function');
+
+        //note!
+        //since a work its just a wrapper for 
+        //Model.findOrCreate
+        //lets be sure its doing
+        //what it supposed to do
+        work(function(error, stage) {
+            if (error) {
+                done(error);
+            } else {
+                expect(stage.id).to.not.be.null;
+                expect(stage.name).to.not.be.null;
+                done();
+            }
+        });
+    });
+
 
     it('should be able to load test environment specific seeds', function(done) {
         sails.config.environment = 'test';
@@ -192,6 +230,24 @@ describe('Hook#seed', function() {
                 done(error);
             } else {
                 expect(result.environment).to.equal('production');
+                expect(result.data).to.not.be.null;
+                done();
+            }
+        });
+    });
+
+
+    it('should be able to load seeds from custom path', function(done) {
+        sails.config.environment = 'test';
+        var config = {
+            path: 'fixtures'
+        };
+
+        loadSeeds(config, function(error, result) {
+            if (error) {
+                done(error);
+            } else {
+                expect(result.environment).to.equal('test');
                 expect(result.data).to.not.be.null;
                 done();
             }
