@@ -107,12 +107,18 @@ module.exports.seed = {
 
 * Clone this repository
 
-* Install all development dependencies
+* Install `grunt-cli` global
 
 ```sh
 $ npm install -g grunt-cli
+```
+
+* Install all development dependencies
+
+```sh
 $ npm install
 ```
+
 * Then run test
 
 ```sh
