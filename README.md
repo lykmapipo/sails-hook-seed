@@ -110,6 +110,7 @@ module.exports.seed = {
 * Install all development dependencies
 
 ```sh
+$ npm install -g grunt-cli
 $ npm install
 ```
 * Then run test
