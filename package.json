@@ -15,7 +15,7 @@
     "author": "Lally Elias",
     "license": "MIT",
     "bugs": {
-        "url": "hhttps://github.com/lykmapipo/sails-hook-seed/issues"
+        "url": "https://github.com/lykmapipo/sails-hook-seed/issues"
     },
     "homepage": "https://github.com/lykmapipo/sails-hook-seed",
     "contributors": [{
@@ -24,6 +24,9 @@
     }, {
         "name": "pschuegr",
         "github": "https://github.com/pschuegr"
+    }, {
+        "name": "givance",
+        "github": "https://github.com/givanse"
     }],
     "keywords": [
         "sails",
