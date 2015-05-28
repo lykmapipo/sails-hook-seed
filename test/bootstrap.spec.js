@@ -16,7 +16,8 @@ before(function(done) {
             port: 7070,
             environment: 'test',
             log: {
-                noShip: true
+                noShip: true,
+                level: 'warn'
             },
             models: {
                 migrate: 'drop'
