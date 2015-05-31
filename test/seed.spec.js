@@ -49,7 +49,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
@@ -84,7 +84,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
@@ -126,7 +126,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
@@ -138,6 +138,50 @@ describe('Hook#seed', function() {
                 expect(user.username).to.not.be.null;
                 expect(user.email).to.not.be.null;
                 done();
+            }
+        });
+    });
+
+    it('should be able to apply associations', function(done) {
+        var seeds = {
+            GroupSeed: {
+                name: 'group one',
+                users: [1]
+            }
+        };
+
+        var work = prepareWork(seeds)[0];
+
+        work(function(error, associationsWork) {
+            if (error) {
+                done(error);
+            } else {
+                // verify associations work list
+                expect(associationsWork).to.be.a('array');
+                expect(associationsWork.length).to.be.equal(1);
+
+                var associationWork = associationsWork[0];
+                expect(associationWork).to.be.a('function');
+
+                // execute work and apply the Group association
+                associationWork(function(err, record) {
+                    if (err) { return done(err); }
+                    expect(record.name).to.be.equal('group one');
+                    expect(record.users.length).to.be.equal(1);
+
+                    // verify the association from the User
+                    sails.models.user
+                      .findOne(1)
+                      .populate('groups')
+                      .exec(function(err, user) {
+                         if (err) { return done(err); }
+
+                         expect(user.groups.length).to.be.equal(1);
+                         expect(user.groups[0].name).to.be.equal('group one');
+
+                         done();
+                      });
+                });
             }
         });
     });
@@ -166,7 +210,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do

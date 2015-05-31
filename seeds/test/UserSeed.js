@@ -7,9 +7,11 @@ var faker = require('faker');
 module.exports = function(done) {
 
     var data = [{
+        id: 1,
         username: faker.internet.userName(),
         email: faker.internet.email()
     }, {
+        id: 2,
         username: faker.internet.userName(),
         email: faker.internet.email()
     }];

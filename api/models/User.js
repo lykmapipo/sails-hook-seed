@@ -9,6 +9,10 @@ module.exports = {
         },
         email: {
             type: 'email'
+        },
+        groups: {
+            collection: 'group',
+            via: 'users'
         }
     }
 };
