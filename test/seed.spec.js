@@ -186,6 +186,33 @@ describe('Hook#seed', function() {
         });
     });
 
+    it('should throw an error of type insert', function(done) {
+        var seeds = {
+            GroupSeed: {
+                name: 'group one',
+                users: [999]
+            }
+        };
+
+        var work = prepareWork(seeds)[0];
+
+        work(function(error, associationsWork) {
+            if (error) {
+                done(error);
+            } else {
+                var associationWork = associationsWork[0];
+                expect(associationWork).to.be.a('function');
+
+                // execute work and apply the Group association
+                associationWork(function(err, record) {
+                    expect(err[0].type).to.be.equal('insert');
+                    expect(err[0].collection).to.be.equal('group_users__user_groups');
+                    done(null, record); 
+                });
+            }
+        });
+    });
+
     it('should be able to prepare work(s) to be performed from seeds start with `S` letter', function(done) {
         var seeds = {
             StageSeed: function(done) {
