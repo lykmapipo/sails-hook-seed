@@ -10,9 +10,19 @@ module.exports = {
         email: {
             type: 'email'
         },
-        groups: {
+        // associations
+        hasOneGroup: {
+            model: 'group'
+        },
+        // many-to-one 
+        hasManyGroups: {
             collection: 'group',
-            via: 'users'
+            via: 'hasOneUser'
+        },
+        // many-to-many
+        manyManyGroups: {
+            collection: 'group',
+            via: 'manyManyUsers'
         }
     }
 };

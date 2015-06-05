@@ -5,9 +5,19 @@
 module.exports = {
     attributes: {
         name: {type: 'string'},
-        users: {
+        // associations
+        hasOneUser: {
+          model: 'user'
+        },
+        // many-to-one 
+        hasManyUsers: {
           collection: 'user',
-          via: 'groups',
+          via: 'hasOneGroup',
+        }, 
+        // many-to-many
+        manyManyUsers: {
+          collection: 'user',
+          via: 'manyManyGroups',
           dominant: true
         } 
     }
