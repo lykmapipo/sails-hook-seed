@@ -49,7 +49,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
@@ -84,7 +84,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
@@ -126,7 +126,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
@@ -166,7 +166,7 @@ describe('Hook#seed', function() {
         expect(work).to.be.a('function');
 
         //note!
-        //since a work its just a wrapper for 
+        //since a work its just a wrapper for
         //Model.findOrCreate
         //lets be sure its doing
         //what it supposed to do
