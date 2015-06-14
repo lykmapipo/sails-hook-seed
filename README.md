@@ -130,6 +130,11 @@ $ npm test
 Fork this repo and push in your ideas. 
 Do not forget to add a bit of test(s) of what value you adding.
 
+# TODO
+- [ ] Removing id from find conditions
+- [ ] Allow specifying find attributes
+- [ ] Use rails migrations dependencies style to allow seeding for associations
+
 ## Licence
 
 Copyright (c) 2015 lykmapipo & Contributors
