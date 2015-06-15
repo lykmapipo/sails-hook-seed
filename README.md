@@ -132,12 +132,13 @@ Do not forget to add a bit of test(s) of what value you adding.
 
 # TODO
 - [ ] Removing id from find conditions
-- [ ] Allow specifying find attributes
+- [ ] Allow specifying custom find attributes in seeds
+- [ ] Adding seed dependencies management to allow one seed to depend on other
 - [ ] Use rails migrations dependencies style to allow seeding for associations
-- [ ] Adding beforeSeed hook
-- [ ] Adding afterSeed hook
-- [ ] Add ability to specify seed run(EVERY,ONCE)
-- [ ] Add seed phases (cleanup,prepare,seed,done)
+- [ ] Adding beforeSeed hook(s)
+- [ ] Adding afterSeed hook(s)
+- [ ] Add ability to specify seed run type(EVERY,ONCE)
+- [ ] Add seed phases (cleanup, prepare, seed, done)
 - [ ] Make seed event emmitter to allow them to interact and trigger other seeds
 
 ## Licence
