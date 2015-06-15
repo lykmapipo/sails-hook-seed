@@ -18,6 +18,11 @@ Simplify seeding data to your persistent storage of your choice based on the cur
 $ npm install --save sails-hook-seed
 ```
 
+Seeds are generated using [Faker](https://github.com/marak/Faker.js/)
+```js
+$ npm install --save faker
+```
+
 ## Usage
 By default `sails-hook-seed` look for environment specific seeds in the `seeds` directory inside `sails.appPath` of your application. Example, if you need to seed your application during `test` you will have to create `seeds/test` and add `model seed files` inside it.
 
