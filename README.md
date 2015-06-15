@@ -18,9 +18,9 @@ Simplify seeding data to your persistent storage of your choice based on the cur
 $ npm install --save sails-hook-seed
 ```
 
-Seeds are generated using [Faker](https://github.com/marak/Faker.js/)
+*You may opt to install faker [Faker](https://github.com/marak/Faker.js/) as your test and development seed generator*
 ```js
-$ npm install --save faker
+$ npm install --save-dev faker
 ```
 
 ## Usage
