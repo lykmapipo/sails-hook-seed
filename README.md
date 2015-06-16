@@ -137,15 +137,17 @@ Fork this repo and push in your ideas.
 Do not forget to add a bit of test(s) of what value you adding.
 
 # TODO
-- [ ] Removing id from find conditions
-- [ ] Allow specifying custom find attributes in seeds
-- [ ] Adding seed dependencies management to allow one seed to depend on other
-- [ ] Use rails migrations dependencies style to allow seeding for associations
+- [ ] Allow specifying custom find attributes(criteria) in seeds
+- [ ] Remove associations and collection data type from seed finder
+- [ ] Adding seed dependencies management to allow one seed to depend on other seed(s)
+- [ ] Use rails migrations dependencies style to allow seeding for associations(inspiration)
 - [ ] Adding beforeSeed hook(s)
 - [ ] Adding afterSeed hook(s)
 - [ ] Add ability to specify seed run type(EVERY,ONCE)
 - [ ] Add seed phases (cleanup, prepare, seed, done)
 - [ ] Make seed event emmitter to allow them to interact and trigger other seeds
+- [ ] Add ability to clean up all seeded data
+- [ ] Controll depth of loading associations
 
 ## Licence
 

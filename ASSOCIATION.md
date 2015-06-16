@@ -19,17 +19,41 @@ Fast-forward
 
 ## Associations Dump
  ```javascript
- associations: 
-   [ { alias: 'hasOneGroup', type: 'model', model: 'group' },
-     { alias: 'hasManyGroups',
-       type: 'collection',
-       collection: 'group',
-       via: 'hasOneUser' },
-     { alias: 'manyManyGroups',
-       type: 'collection',
-       collection: 'group',
-       via: 'manyManyUsers' } ] }
+ associations: {
+       [ 
+        { alias: 'hasOneGroup', 
+            type: 'model', 
+            model: 'group' },
+         { alias: 'hasManyGroups',
+           type: 'collection',
+           collection: 'group',
+           via: 'hasOneUser' },
+         { alias: 'manyManyGroups',
+           type: 'collection',
+           collection: 'group',
+           via: 'manyManyUsers' }
+        ] 
+};
 ```
+
+## Note
+- Seeds are applied in parallel with no order
+- Undestand `sails` association implementation 
+- Understand sails `via`, `dominant` and other associations terminology
+- Make use of `seeds` to drive seeding and not `models` to drive seeding when implementing seeding logics
+
+## Reference Models
+We will be using [sailsjs association models](http://sailsjs.org/#!/documentation/concepts/ORM) as reference models to be used in  implementing `association seeding` in `sails-hook-seed`.
+
+## Object Based Implementation
+
+### One Way Associations
+
+
+### Two Way Associations
+
+### One-to-One
+
 
 
 # References
