@@ -9,7 +9,7 @@ sails-hook-seed
 
 DRY data seeding for sails.
 
-Simplify seeding data to your persistent storage of your choice based on the current running environment obtained from `sails.config.environment` of your application. That is to say, you may use `sails-hook-seed` during `test`,`development` and even seed your application with default data during deployment in `production` environment.
+Simplify seeding data to your persistent storage of your choice based on the current running environment obtained from `sails.config.environment` of your application. You may use `sails-hook-seed` during `test`, `development` and even seed your application with default data during deployment in `production` environment.
 
 *Note: This requires Sails v0.11.0+.  If v0.11.0+ isn't published to NPM yet, you'll need to install it via Github.*
 
@@ -26,7 +26,7 @@ $ npm install --save-dev faker
 ## Usage
 By default `sails-hook-seed` look for environment specific seeds in the `seeds` directory inside `sails.appPath` of your application. Example, if you need to seed your application during `test` you will have to create `seeds/test` and add `model seed files` inside it.
 
-`sails-hook-seed` will load any file suffix-ed with `Seed` and load it as a seed. Example, if you want to seed your `User` model during `test` your need to write your seed as folow:
+`sails-hook-seed` will load any file suffix-ed with `Seed` as a seed. Example, if you want to seed your `User` model during `test` your need to write your seed as folow:
 
 ```js
 //in seed/test/UserSeed.js
@@ -43,9 +43,7 @@ module.exports = [{
 ## Seed Types
 `sails-hook-seed` accept `array type`, `plain object` and `functional` type seeds.
 
-### Examples
-
-#### Object seed type
+#### Object Seed Type
 ```js
 //in seed/test/UserSeed.js
 var faker = require('faker');
@@ -58,7 +56,7 @@ module.exports = {
 };
 ```
 
-#### Array seed type
+#### Array Seed Type
 ```js
 //in seed/test/UserSeed.js
 var faker = require('faker');
@@ -70,7 +68,7 @@ module.exports = [{
 }];
 ```
 
-#### Functional seed type
+#### Functional Seed Type
 ```js
 //in seed/test/UserSeed.js
 var faker = require('faker');
