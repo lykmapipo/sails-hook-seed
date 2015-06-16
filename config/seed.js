@@ -3,6 +3,6 @@ module.exports.seed = {
     //relative to `sails.appPath`
     path: 'seeds',
 
-    //enable or disable the seeding
+    //enable or disable seeding
     active: true
 }

@@ -104,7 +104,10 @@ Simply, copy the below and add it to your `config/seed.js`
 module.exports.seed = {
     //directory where migration resides
     //relative to `sails.appPath`
-    path: 'seeds'
+    path: 'seeds',
+
+    //enable or disable seeding
+    active: true
 }
 ```
 
