@@ -17,7 +17,7 @@ before(function(done) {
             environment: 'test',
             log: {
                 noShip: true,
-                level: 'info'//lets see debug
+                level: 'info' //lets see debug
             },
             models: {
                 migrate: 'drop'
