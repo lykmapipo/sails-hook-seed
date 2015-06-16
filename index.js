@@ -15,6 +15,9 @@ module.exports = function(sails) {
 
         //Defaults configurations
         defaults: {
+            //set seeding to be active by default
+            active: true,
+
             //directory where migration resides
             //relative to `sails.appPath`
             path: 'seeds'
@@ -31,24 +34,33 @@ module.exports = function(sails) {
             var config =
                 _.extend(hook.defaults, sails.config.seed);
 
-            // Lets wait on some of the sails core hooks to
-            // finish loading before 
-            // load `sails-hook-seed`
-            var eventsToWaitFor = [];
-
-            if (sails.hooks.orm) {
-                eventsToWaitFor.push('hook:orm:loaded');
+            //if seeding is disabled back-off
+            if (!config.active) {
+                done();
             }
 
-            if (sails.hooks.pubsub) {
-                eventsToWaitFor.push('hook:pubsub:loaded');
+            //continue with seeding
+            else {
+                // Lets wait on some of the sails core hooks to
+                // finish loading before 
+                // load `sails-hook-seed`
+                var eventsToWaitFor = [];
+
+                if (sails.hooks.orm) {
+                    eventsToWaitFor.push('hook:orm:loaded');
+                }
+
+                if (sails.hooks.pubsub) {
+                    eventsToWaitFor.push('hook:pubsub:loaded');
+                }
+
+                sails
+                    .after(eventsToWaitFor, function() {
+                        //load seeds
+                        loadSeeds(config, done);
+                    });
             }
 
-            sails
-                .after(eventsToWaitFor, function() {
-                    //load seeds
-                    loadSeeds(config, done);
-                });
         }
     };
 
