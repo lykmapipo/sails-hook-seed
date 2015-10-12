@@ -3,9 +3,6 @@ sails-hook-seed
 
 [![Build Status](https://travis-ci.org/lykmapipo/sails-hook-seed.svg?branch=master)](https://travis-ci.org/lykmapipo/sails-hook-seed)
 
-[![Tips](https://img.shields.io/gratipay/lykmapipo.svg)](https://gratipay.com/lykmapipo/)
-
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/lykmapipo/)
 
 DRY data seeding for sails.
 
@@ -148,6 +145,10 @@ Do not forget to add a bit of test(s) of what value you adding.
 - [ ] Make seed event emmitter to allow them to interact and trigger other seeds
 - [ ] Add ability to clean up all seeded data
 - [ ] Controll depth of loading associations
+- [ ] Add ability to disable individual seed
+- [ ] Try to use delete/create in test and development to see if timeout issue will be solved
+- [ ] Make sure in production we use findOrCreate
+- [ ] Fix timeout issues
 
 ## Licence
 
